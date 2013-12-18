@@ -39,6 +39,7 @@ If you have recently upgraded your Mac OS X version or Xcode, you may have some 
 - Proceed step by step to isolate the responsible formula. If you need to install `php55` and `php55-imagick`, don't do `brew install php55 php55-imagick`. Just do `brew install php55`, ensure everything is working as expected, check the output of `phpinfo()`, restart your Apache server with `sudo apachectl restart`. Then you can install the next formula `brew install php55-imagick`.
 - If `php53`, `php54` or `php55` build fails, remove all their dependencies and reinstall the formula. For instance: If `brew install php55` fails, do the following: `brew rm php55 && brew deps php55 | xargs brew rm`. If `brew install php55 -- with-gmp` fails, do the following: `brew rm php55 && brew deps php55 --with-gmp | xargs brew rm`. Then reinstall a clean version of the formula: `brew update && brew upgrade && brew install php55`.
 - If an extension build fails, try also to remove all its dependencies and reinstall it.
+- Sometimes it appears that a formula is not available anymore, do the following: `brew tap --repair`.
 
 ----
 
@@ -222,7 +223,7 @@ Please note that your formula installation may deviate significantly from the ab
 
 The ordering of formula attributes, such as the `homepage`, `url`, `sha1`, etc. should follow the above order for consistency. The `version` is only included when the URL does not include a version in the filename. `head` installations are not required.
 
-All official PHP extensions should be built for all stable versions of PHP included in `homebrew-php`. These versions are `5.3.27`, `5.4.22` and `5.5.6`.
+All official PHP extensions should be built for all stable versions of PHP included in `homebrew-php`. These versions are `5.3.28`, `5.4.23` and `5.5.7`.
 
 ## Todo
 
